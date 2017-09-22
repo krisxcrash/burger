@@ -15,7 +15,7 @@
     <div class="col-md-6">
         <ul>
             {{#each burgers}}
-                {{#unless this.true}}
+                {{#unless this.devoured}}
                 <li>
                     {{this.burger_name}}
 
@@ -31,7 +31,7 @@
     <div class="col-md-6">
         <ul>
         {{#each burgers}}
-            {{#if this.false}}
+            {{#if this.devoured}}
             <li>
                 {{this.burger_name}}
 
