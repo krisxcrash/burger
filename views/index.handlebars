@@ -1,3 +1,4 @@
+<!-- This is the jumbotron and main header -->
 <div class="container">
     <div class="jumbotron">
     <h1 id="header">
@@ -9,12 +10,50 @@
     </div>
 </div>
 
+<!-- This is where the data is updated to the window -->
+<div class="container">
+    <div class="col-md-6">
+        <ul>
+            {{#each burgers}}
+                {{#unless this.true}}
+                <li>
+                    {{this.burger_name}}
 
+                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                    <input type="hidden" name="burger_name" value="false">
+                    <button type="submit">Om Nom Nom!</button>
+                    </form>
+                </li>
+                {{/unless}}
+            {{/each}}
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <ul>
+        {{#each burgers}}
+            {{#if this.false}}
+            <li>
+                {{this.burger_name}}
+
+                <form action="/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="burger_name" value="true">
+                <button type="submit">I want more!</button>
+                </form>
+            </li>
+            {{/if}}
+        {{/each}}
+        </ul>
+    </div>
+</div>
+
+<!-- This is where the client will add their burger -->
 <form class="create-update-form" action="/" method="POST">
 
     <div class="form-group">
         <label for="burg">Burger:</label>
         <input type="text" id="burg" name="name" placeholder="List your burger here!">
     </div>
+
+    <button type="submit">I'm Hungry!</button>
 
 </form>
