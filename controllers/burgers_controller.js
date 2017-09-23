@@ -16,9 +16,9 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
     burger.create([
-        "burger_name", false
+        "burger_name", "devoured"
     ], [
-        req.body.name, req.body.sleepy
+        req.body.burger_name, false
     ], function() {
         res.redirect("/");
     });

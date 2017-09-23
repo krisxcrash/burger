@@ -13,15 +13,16 @@
 <!-- This is where the data is updated to the window -->
 <div class="container">
     <div class="col-md-6">
-        <ul>
-            {{#each burgers}}
+        <ul class="list-group">
+            {{#each burger}}
                 {{#unless this.devoured}}
-                <li>
-                    {{this.burger_name}}
-
+                <li class="list-group-item">
+                    <h4>
+                        {{this.burger_name}}
+                    </h4>
                     <form action="/{{this.id}}?_method=PUT" method="POST">
-                    <input type="hidden" name="burger_name" value="false">
-                    <button type="submit">Om Nom Nom!</button>
+                    <input type="hidden" name="burger_name" value="true">
+                    <button class= "form-control"  type="submit">Om Nom Nom!</button>
                     </form>
                 </li>
                 {{/unless}}
@@ -29,15 +30,16 @@
         </ul>
     </div>
     <div class="col-md-6">
-        <ul>
-        {{#each burgers}}
+        <ul class="list-group">
+        {{#each burger}}
             {{#if this.devoured}}
-            <li>
-                {{this.burger_name}}
-
+            <li class="list-group-item">
+                <h4>
+                    {{this.burger_name}}
+                </h4>
                 <form action="/{{this.id}}?_method=PUT" method="POST">
-                <input type="hidden" name="burger_name" value="true">
-                <button type="submit">I want more!</button>
+                <input type="hidden" name="burger_name" value="false">
+                <button class= "form-control" type="submit">I want more!</button>
                 </form>
             </li>
             {{/if}}
@@ -50,10 +52,10 @@
 <form class="create-update-form" action="/" method="POST">
 
     <div class="form-group">
-        <label for="burg">Burger:</label>
-        <input type="text" id="burg" name="burger_name" placeholder="List your burger here!">
+        <label for="burg"><h4>Burger:</h4></label>
+        <input class="form-control" type="text" id="burg" name="burger_name" placeholder="List your burger here!">
     </div>
 
-    <button type="submit" name="devoured" value="0">I'm Hungry!</button>
+    <button class= "form-control" type="submit" name="devoured" value="0">I'm Hungry!</button>
 
 </form>

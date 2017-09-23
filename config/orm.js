@@ -5,9 +5,10 @@ var connection = require("../config/connection.js");
 function printQuestionMarks(num) {
     var arr = [];
 
-    for (var i = 0; i < num.length; i++) {
+    for (var i = 0; i < num; i++) {
         arr.push("?");
     }
+
     return arr.toString();
 }
 
@@ -38,6 +39,7 @@ var orm = {
         });
     },
     create: function(table, cols, vals, cb) {
+
         var queryString = "INSERT INTO " + table;
 
         queryString += " (";
@@ -57,7 +59,7 @@ var orm = {
         });
     },
     update: function(table, objColVals, condition, cb) {
-        var queryString = "UPDATE" + table;
+        var queryString = "UPDATE " + table;
 
         queryString += " SET ";
         queryString += objToSql(objColVals);
