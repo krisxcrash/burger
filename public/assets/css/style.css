@@ -1,0 +1,38 @@
+
+.jumbo-header {
+    text-align: center;
+    background: 
+        url("../images/burger-wp.jpg") no-repeat;
+    background-size: 100%;
+    background-position: center;
+    padding: 120px 25px;
+}
+.h1-design {
+    color: #fff;
+    font-size: 5em;
+    font-weight: bold;
+    text-shadow: 3px 3px 8px #000;
+}
+
+.h2-design {
+    color: #fff;
+    font-size: 2em;
+    text-shadow: 2px 2px 8px #000;
+}
+
+.header-format {
+    text-align: center;
+}
+
+h3.header-format {
+    font-weight: bold;
+}
+
+.h4-format {
+    font-weight: bold;
+    text-align: center;
+}
+
+#burg-input {
+    padding: 0 11% 3% 11%;
+}
