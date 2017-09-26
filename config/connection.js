@@ -1,18 +1,25 @@
 //MySQL Connection set up
 var mysql = require('mysql');
-var sqlKeys = require('../keys.js');
+
 var connection;
 
 if (process.env.JAWSDB_URL) {
-    conntection= mysql.createConnection(process.env.JAWSDB_URL);
-} else {
-    connection = mysql.createConnection({
-        host: sqlKeys.serverKeys.host,
-        user: sqlKeys.serverKeys.user,
-        password: sqlKeys.serverKeys.password,
-        database: sqlKeys.serverKeys.database
+    // We are in production
+    conntection= mysql.createConnection({
+        host: process.env.HOST,
+        user: process.env.USERNAME,
+        password: process.env.PASSWORD,
+        database: process.env.DATABASE_NAME
     });
-};
+} else {
+    // We are in a local environment
+    connection = mysql.createConnection({
+        host: "localhost",
+        user: "uci.projects",
+        password: "uciprojects123",
+        database: "burgers_DB"
+    });
+}; 
 
 //Make Connection
 connection.connect(function(err){
