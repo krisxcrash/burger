@@ -1,16 +1,16 @@
 //MySQL Connection set up
 var mysql = require('mysql');
-
+var sqlKeys = require('../keys.js');
 var connection;
 
 if (process.env.JAWSDB_URL) {
     conntection= mysql.createConnection(process.env.JAWSDB_URL);
 } else {
     connection = mysql.createConnection({
-        host: "localhost",
-        user: "uci.projects",
-        password: "uciprojects123",
-        database: "burgers_DB"
+        host: sqlKeys.serverKeys.host,
+        user: sqlKeys.serverKeys.user,
+        password: sqlKeys.serverKeys.password,
+        database: sqlKeys.serverKeys.database
     });
 };
 
