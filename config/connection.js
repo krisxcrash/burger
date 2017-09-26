@@ -5,7 +5,7 @@ var connection;
 
 if (process.env.JAWSDB_URL) {
     // We are in production
-    conntection= mysql.createConnection({
+    connection= mysql.createConnection({
         host: process.env.HOST,
         user: process.env.USERNAME,
         password: process.env.PASSWORD,
